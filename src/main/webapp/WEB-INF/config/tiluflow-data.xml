@@ -65,16 +65,6 @@
 		autowire-candidate="true" autowire="byName" p:fallbackToSystemLocale="false"
 		p:useCodeAsDefaultMessage="true" p:defaultEncoding="UTF-8"
 		p:basename="classpath:messages" />
-		<bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
-			<property name="templateResolver" ref="templateResolver" />
-		</bean>
-		<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
-			<property name="templateEngine" ref="templateEngine" />
-		</bean>
-		<bean id="templateResolver"
-			class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-			<property name="prefix" value="/WEB-INF/templates/" />
-			<property name="suffix" value=".html" />
-			<property name="templateMode" value="HTML5" />
-		</bean>
+		
+
 </beans>
