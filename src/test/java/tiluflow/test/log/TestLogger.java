@@ -37,7 +37,7 @@ public class TestLogger {
 	@Test
 	public void testCriteriaCheck() {
 	
-			List<org.tiluflow.domain.Account> result = accountDaoService.getAll(true);
+			List<Account> result = accountDaoService.getAll(true);
 			LOG.info("result {}", result.size() );
 			Assert.assertEquals("Expected result 4",6, result.size() );
 	}
