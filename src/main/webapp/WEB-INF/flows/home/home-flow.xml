@@ -6,7 +6,7 @@
         
     <persistence-context />        
         
-    <view-state id="home" view="index">
+    <view-state id="home" view="intro">
         <transition on="manageAccounts" to="viewManageAccounts" />
         <transition on="end" to="end" />
     </view-state>            

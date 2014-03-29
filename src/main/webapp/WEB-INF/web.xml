@@ -43,7 +43,7 @@
 
   <servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
-    <url-pattern>/tiluflow/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
