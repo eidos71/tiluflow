@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Length;
 /**
  * Entity Address
  * 
- * @author ebrigand
+ * @author eidos71
  */
 @Entity
 @Table(name = "address")

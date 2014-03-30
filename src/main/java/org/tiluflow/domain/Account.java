@@ -24,7 +24,7 @@ import org.hibernate.validator.constraints.Email;
 /**
  * Entity Account
  * 
- * @author ebrigand
+ * @author eidos71
  */
 @Entity
 @Table(name = "account")

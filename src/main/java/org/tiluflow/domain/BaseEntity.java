@@ -12,7 +12,7 @@ import javax.persistence.Transient;
 /**
  * Abstract Entity
  * 
- * @author ebrigand
+ * @author eidos71
  */
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {

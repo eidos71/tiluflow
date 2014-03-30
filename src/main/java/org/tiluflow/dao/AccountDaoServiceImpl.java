@@ -34,11 +34,11 @@ public class AccountDaoServiceImpl extends AbstractJpaDao<Integer,Account> imple
   @Transactional(readOnly = true)
   @Override
   public List<Account> getAll(boolean isEnabled) {
-    CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery<Account> cq = cb.createQuery(entityClass);
+    final  CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+    CriteriaQuery<Account> cq = criteriaBuilder.createQuery(entityClass);
     Root<Account> root = cq.from(entityClass);
     cq.select(root);
-    cq.where(cb.equal(root.get(Account_.enabled), isEnabled));
+    cq.where(criteriaBuilder.equal(root.get(Account_.enabled), isEnabled));
     TypedQuery<Account> q = em.createQuery(cq);
     return q.getResultList();
   }

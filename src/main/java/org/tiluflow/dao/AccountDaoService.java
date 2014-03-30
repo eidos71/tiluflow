@@ -9,7 +9,7 @@ import org.tiluflow.domain.Account;
 /**
  * DAO Layer interface to manage accounts
  * 
- * @author ebrigand
+ * @author eidos71
  * 
  */
 public interface AccountDaoService extends GenericDao<Integer,Account> {

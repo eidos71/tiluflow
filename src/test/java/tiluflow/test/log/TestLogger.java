@@ -1,6 +1,9 @@
 package tiluflow.test.log;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
+
 
 
 
@@ -25,6 +28,10 @@ public class TestLogger {
 	  @Autowired
 	  private org.tiluflow.dao.AccountDaoService accountDaoService;
 	
+	public void setAccountDaoService(
+			org.tiluflow.dao.AccountDaoService accountDaoService) {
+		this.accountDaoService = accountDaoService;
+	}
 	static final Logger LOG = LoggerFactory.getLogger(TestLogger.class);
 	@Test
 	public void testElement() {
@@ -33,19 +40,21 @@ public class TestLogger {
 		LOG.info("I am fine.");
 		LOG.warn("I love programming.");
 		LOG.error("I am programming.");
+		assertEquals(true, true);
 	}
 	@Test
 	public void testCriteriaCheck() {
 	
-			List<Account> result = accountDaoService.getAll(true);
+			final List<Account> result = accountDaoService.getAll(true);
 			LOG.info("result {}", result.size() );
 			Assert.assertEquals("Expected result 4",6, result.size() );
 	}
 	@Test
 	public void testUpdatecheck(){
-		Account entity = new Account();
+//		Account entity = new Account();
 //		entity.setAddresses(null);
 //		entity.setEmail("ernest@test.test");
 //		accountDaoService.save(entity);
+		Assert.fail();
 	}
 }
