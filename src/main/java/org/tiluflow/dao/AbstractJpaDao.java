@@ -10,15 +10,19 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.tiluflow.domain.BaseEntity;
+
+import tiluflow.test.log.TestLogger;
 
 
 
 public abstract class AbstractJpaDao<K, E extends BaseEntity> implements
 		GenericDao<K, E> {
 	protected Class<E> entityClass;
-
+	static final Logger LOG = LoggerFactory.getLogger(TestLogger.class);
 	@PersistenceContext
 	protected EntityManager em;
 
@@ -45,7 +49,8 @@ public abstract class AbstractJpaDao<K, E extends BaseEntity> implements
 	@Override
 	@Transactional
 	public void save(E entity) {
-		if (entity.getId() == 0) {
+		LOG.info("Entity coming is:{} ", entity);
+		if (entity.getId()==null || entity.getId() == 0) {
 			em.persist(entity);
 		} else {
 			em.merge(entity);

@@ -8,13 +8,16 @@
   </appender>
    
   
+  <logger name="org.hibernate.SQL" level="debug" />
+    <logger name=" org.hibernate.type" level="trace" />
+
   <logger name="org.hsqldb" level="debug" />
 
   <logger name="org.springframework.beans" level="warn" />
 
   <logger name="org.springframework.jdbc" level="warn" />
 
-  <logger name="org.springframework.transaction" value="warn" />
+  <logger name="org.springframework.transaction" value="debug" />
 
   <logger name="org.springframework.orm" level="warn" />
 
