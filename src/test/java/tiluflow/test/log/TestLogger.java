@@ -64,7 +64,6 @@ public class TestLogger {
 	public void testCriteriaInsertuser(){
 
 		User entity= new User("eidos71","c0rp3t1t1","Ernest Petit");
-	
 		userDaoService.save(entity);
 		final List<User> result= userDaoService.getAll();
 		LOG.info("result{}", result.size());
