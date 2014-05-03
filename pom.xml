@@ -150,7 +150,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>r09</version>
+			<version>17.0</version>
 		</dependency>
 		<!-- Joda Time -->
 		<dependency>

@@ -26,12 +26,14 @@ public List<User> getAll() {
     Root<User> root = cq.from(entityClass);
     cq.select(root);
     TypedQuery<User> q = em.createQuery(cq);
+    LOG.debug("{} ", cq );
     return q.getResultList();
 }
 
 @Override
 public List<User> getAll(String columnNameForOrderBy) {
 	// TODO Auto-generated method stub
+	
 	return null;
 }
 
