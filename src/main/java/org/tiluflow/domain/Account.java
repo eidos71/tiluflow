@@ -30,7 +30,16 @@ import org.hibernate.validator.constraints.Email;
 @Table(name = "account")
 public class Account extends BaseEntity implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+  @Override
+	public String toString() {
+		return "Account [username=" + username + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", password=" + password
+				+ ", email=" + email + ", desactivationDateStr="
+				+ desactivationDateStr + ", desactivationDate="
+				+ desactivationDate + " ]";
+	}
+
+private static final long serialVersionUID = 1L;
 
   @Column(name = "username", nullable = false)
   private String username;
