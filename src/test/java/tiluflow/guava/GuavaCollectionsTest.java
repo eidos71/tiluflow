@@ -18,13 +18,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tiluflow.domain.Account;
 
-
-
-
-
-
-
-
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
@@ -34,7 +27,6 @@ import com.google.common.collect.Iterables;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.PrimitiveSink;
-
 
 @ContextConfiguration("classpath:account-data.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
