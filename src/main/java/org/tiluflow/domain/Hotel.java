@@ -4,9 +4,12 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Hotel extends BaseEntity {
+public class Hotel  {
 
 	/**
 	 * 
@@ -26,7 +29,18 @@ public class Hotel extends BaseEntity {
 	public BigDecimal getPrice() {
 		return price;
 	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Integer id;
 
+    public Integer getId() {
+      return id;
+    }
+
+    public void setId(Integer id) {
+      this.id = id;
+    }
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
@@ -121,10 +135,5 @@ public class Hotel extends BaseEntity {
 		this.country = country;
 	}
 
-	@Override
-	protected void initDefaultValues() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

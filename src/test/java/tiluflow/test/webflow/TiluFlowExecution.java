@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.webflow.config.FlowDefinitionResource;
 import org.springframework.webflow.config.FlowDefinitionResourceFactory;
 import org.springframework.webflow.core.collection.LocalAttributeMap;
@@ -43,9 +44,9 @@ public class TiluFlowExecution extends AbstractXmlFlowExecutionTests {
 	}
 
 	@Test
-	public void testStartAccountFlow() {
+	public void testStartAccountFlow() throws NotFoundException {
 		Account account = createTestAccount();
-		EasyMock.expect(accountService.get('1')).andReturn(account);
+		EasyMock.expect(accountService.findById(1)).andReturn(account);
 		EasyMock.replay(accountService);
 		MutableAttributeMap input = new LocalAttributeMap();
 		input.put("accountId", "25");

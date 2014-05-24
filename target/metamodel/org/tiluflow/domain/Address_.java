@@ -6,8 +6,9 @@ import javax.persistence.metamodel.StaticMetamodel;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Address.class)
-public abstract class Address_ extends org.tiluflow.domain.BaseEntity_ {
+public abstract class Address_ {
 
+	public static volatile SingularAttribute<Address, Integer> id;
 	public static volatile SingularAttribute<Address, String> zipcode;
 	public static volatile SingularAttribute<Address, String> state;
 	public static volatile SingularAttribute<Address, Account> account;

@@ -14,6 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tiluflow.domain.Account;
 import org.tiluflow.domain.Hotel;
+import org.tiluflow.service.AccountService;
+import org.tiluflow.service.HotelService;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -24,28 +26,13 @@ import com.google.common.collect.Multimap;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class GuavaMapsTest {
 
+
 	@Autowired
-	private org.tiluflow.dao.AccountDaoService accountDaoService;
+	private AccountService  repositoryUserService;
 	@Autowired
-	private org.tiluflow.dao.UserDaoService userDaoService;
+	private  HotelService  repositoryHotelService;
 	@Autowired
-	private org.tiluflow.dao.HotelDaoService hotelDaoService;
-	/**
-	 * 
-	 * @param hotelDaoService
-	 */
-	public void setHotelDaoService(
-			org.tiluflow.dao.HotelDaoService hotelDaoService) {
-		this.hotelDaoService = hotelDaoService;
-	}
-	/**
-	 * 
-	 * @param accountDaoService
-	 */
-	public void setAccountDaoService(
-			org.tiluflow.dao.AccountDaoService accountDaoService) {
-		this.accountDaoService = accountDaoService;
-	}
+	private AccountService repositoryAccountService;
 
 	private Set<Hotel> hotels;
 	private Set<Account> accounts;
@@ -55,9 +42,9 @@ public class GuavaMapsTest {
 
 	@Before
 	public void setup() {
-		accounts = new HashSet<Account>(accountDaoService.getAll(true));
-		hotels = new HashSet<Hotel>(hotelDaoService.getAll() );
-		}
+		accounts = new HashSet<Account>(repositoryAccountService.findAll());
+		hotels = new HashSet<Hotel>(repositoryHotelService.findAll());
+	}
 	@Test
 	public void multiMapTest(){
 		LOG.debug("hotel size {}", hotels.size());

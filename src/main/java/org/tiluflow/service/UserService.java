@@ -3,20 +3,22 @@ package org.tiluflow.service;
 import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-import org.tiluflow.domain.Account;
 
-public interface AccountService {
+import org.tiluflow.domain.User;
 
+public interface UserService {
+
+	
 	/**
 	 * 
 	 * @return
 	 */
-	public List<Account> findAll();
+	public List<User> findAll();
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 * @throws NotFoundException
 	 */
-	public Account findById(Integer id) throws NotFoundException;
+	public User findById(Integer id) throws NotFoundException;
 }

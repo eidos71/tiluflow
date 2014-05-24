@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tiluflow.domain.Account;
+import org.tiluflow.service.RepositoryAccountService;
+import org.tiluflow.service.RepositoryHotelService;
+import org.tiluflow.service.RepositoryUserService;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -31,18 +34,17 @@ import com.google.common.hash.PrimitiveSink;
 @ContextConfiguration("classpath:account-data.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class GuavaCollectionsTest {
-	  @Autowired
-	  private org.tiluflow.dao.AccountDaoService accountDaoService;
-	  @Autowired
-	  private org.tiluflow.dao.UserDaoService userDaoService;
+	@Autowired
+	private RepositoryAccountService repositoryAccountService;
+	@Autowired
+	private RepositoryUserService repositoryUserService;
+	@Autowired
+	private  RepositoryHotelService  repositoryHotelService;
 	
 	  private Set<Account> accounts;
 	  
 	
-	public void setAccountDaoService(
-			org.tiluflow.dao.AccountDaoService accountDaoService) {
-		this.accountDaoService = accountDaoService;
-	}
+
 	static final Logger LOG = LoggerFactory.getLogger(GuavaCollectionsTest.class);
 	
 	private static Set<String> buildSetStrings(){
@@ -70,7 +72,7 @@ public class GuavaCollectionsTest {
 	}
 	@Before
 	public void setup(){
-		 accounts =new HashSet<Account>(accountDaoService.getAll(true) );
+		 accounts =new HashSet<Account>(repositoryAccountService.findAll() );
 	}
 	@Test
 	public void demostrateFilter(){

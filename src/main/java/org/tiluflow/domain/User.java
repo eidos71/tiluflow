@@ -1,6 +1,10 @@
 package org.tiluflow.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -9,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Customer")
-public class User   extends BaseEntity {
+public class User    {
 	  /**
 	 * 
 	 */
@@ -24,7 +28,14 @@ public class User   extends BaseEntity {
 	    public User(){
 	    	
 	    }
-	    
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.AUTO)
+	    @Column(name = "id")
+	    private Integer id;
+
+	    public Integer getId() {
+	      return id;
+	    }    
 	    public String getUsername() {
 			return username;
 		}
@@ -62,10 +73,6 @@ public class User   extends BaseEntity {
 		}
 
 
-	@Override
-	protected void initDefaultValues() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

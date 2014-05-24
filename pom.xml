@@ -8,12 +8,16 @@
 	<name>account</name>
 
 	<properties>
+    
+        <spring-data-jpa.version>1.5.1.RELEASE</spring-data-jpa.version>
+		<querydsl.version>3.3.3</querydsl.version>
 		<junit.version>4.7</junit.version>
 		<hamcrest.version>1.1</hamcrest.version>
 		<org.aspectj>1.7.2</org.aspectj>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<tiles-version>2.2.2</tiles-version>
-		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
+		<org.springframework-version>3.2.5.RELEASE</org.springframework-version>
+		<org.springframework-security>3.2.0.RELEASE</org.springframework-security>
 		<spring.webflow>2.3.3.RELEASE</spring.webflow> <!-- 2.4.0.BUILD-SNAPSHOT -->
 		<thymeleaf-version>2.1.2.RELEASE</thymeleaf-version>
 		<thymeleaf-extras-tiles2-version>2.1.1.RELEASE</thymeleaf-extras-tiles2-version>
@@ -37,7 +41,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>${org.springframework-security}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -84,12 +88,22 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${org.springframework-version}</version>
-			<scope>compile</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>		
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>        
+<!-- Spring Data  -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
+        </dependency>
 			<!-- Spring AOP + AspectJ -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -309,8 +323,25 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
 		</dependency>
-	</dependencies>
+		
+<dependency>
+	<groupId>com.mysema.querydsl</groupId>
+	<artifactId>querydsl-core</artifactId>
+	<version>${querydsl.version}</version>
+</dependency>
 
+	<dependency>
+		<groupId>com.mysema.querydsl</groupId>
+		<artifactId>querydsl-apt</artifactId>
+		<version>${querydsl.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.mysema.querydsl</groupId>
+		<artifactId>querydsl-jpa</artifactId>
+		<version>${querydsl.version}</version>
+	</dependency>
+</dependencies>
 
 
 	<build>
@@ -375,6 +406,37 @@
 					<downloadJavadocs>true</downloadJavadocs>
 				</configuration>
 			</plugin>
+
+<plugin>
+    <groupId>com.mysema.maven</groupId>
+    <artifactId>apt-maven-plugin</artifactId>
+    <version>1.0.5</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>process</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>target/generated-sources/java</outputDirectory>
+                <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+            </configuration>
+        </execution>
+        </executions>
+        <dependencies>
+            <dependency>
+                <groupId>com.mysema.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${querydsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysema.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <classifier>apt</classifier>
+                <version>${querydsl.version}</version>
+            </dependency>
+        </dependencies>
+    </plugin>
+
 
 
 			<!-- Plugin to run and test through maven -->
