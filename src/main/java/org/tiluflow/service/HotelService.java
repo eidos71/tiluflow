@@ -20,4 +20,10 @@ public interface HotelService {
 	 * @throws NotFoundException
 	 */
 	public Hotel findById(Integer id) throws NotFoundException;
+	/**
+	 * 
+	 * @param searchTerm
+	 * @return
+	 */
+	public List<Hotel>search (String searchTerm);
 }
