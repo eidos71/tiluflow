@@ -3,7 +3,6 @@ package org.tiluflow.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 
@@ -11,20 +10,13 @@ import javax.persistence.EntityNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.tiluflow.domain.Account;
 import org.tiluflow.domain.Hotel;
 import org.tiluflow.domain.predicates.HotelPredicates;
 import org.tiluflow.dto.HotelDTO;
-import org.tiluflow.repo.AccountRepository;
 import org.tiluflow.repo.HotelRepository;
-
-import tiluflow.guava.GuavaMapsTest;
 
 @Service
 

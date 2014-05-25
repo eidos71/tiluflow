@@ -14,9 +14,11 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tiluflow.domain.Account;
+import org.tiluflow.domain.HotelNotFoundException;
 import org.tiluflow.domain.Hotel;
 import org.tiluflow.dto.HotelDTO;
 import org.tiluflow.service.AccountService;
@@ -79,5 +81,22 @@ public class TestQueryDsl {
 			hotel.setState("state");
 			hotel.setZip("zip");
 			return hotelService.create(hotel);
+	}
+	/**
+	 * 
+	 * @throws NotFoundException
+	 * @throws HotelNotFoundException
+	 */
+	@Test public void testUpdateHotel() throws NotFoundException, HotelNotFoundException{
+	
+		HotelDTO dto= new HotelDTO();
+		dto.setId(1);
+		dto.setAddress("address updated");
+		dto.setCity("city updated");
+		dto.setCountry("CountryUpd");
+
+		hotelService.update(dto);
+		Hotel hotel= hotelService.findById(1);
+		LOG.debug("{}" , hotel.toString() );
 	}
 }

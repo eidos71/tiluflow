@@ -173,7 +173,7 @@ public class Hotel  {
 			BigDecimal price) {
 		 	this.address = StringUtils.isEmpty(address)?this.address:address;
 		 	this.city = StringUtils.isEmpty(city)?this.city:city;
-		 	this.price=(price.intValue()==0)?this.price:price;
+		 	this.price=(price==null)?this.price:price;
 		 	
 		 	
 	}

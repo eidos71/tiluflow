@@ -3,7 +3,7 @@ package org.tiluflow.service;
 import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-import org.tiluflow.domain.EntityNotFoundException;
+import org.tiluflow.domain.HotelNotFoundException;
 import org.tiluflow.domain.Hotel;
 import org.tiluflow.dto.HotelDTO;
 
@@ -38,5 +38,5 @@ public interface HotelService {
 	 * @param hotel
 	 * @return
 	 */
-	Hotel update(HotelDTO hotel) throws EntityNotFoundException;
+	Hotel update(HotelDTO hotel) throws HotelNotFoundException;
 }
