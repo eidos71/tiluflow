@@ -8,7 +8,7 @@
 	<name>account</name>
 
 	<properties>
-    
+    	<jaxws-maven>1.12</jaxws-maven>
         <spring-data-jpa.version>1.5.1.RELEASE</spring-data-jpa.version>
 		<querydsl.version>3.3.3</querydsl.version>
 		<junit.version>4.7</junit.version>
@@ -437,7 +437,21 @@
         </dependencies>
     </plugin>
 
-
+  <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxws-maven-plugin</artifactId>
+            <version>${jaxws-maven}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>wsimport</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+            </configuration>
+        </plugin>
 
 			<!-- Plugin to run and test through maven -->
 			<plugin>

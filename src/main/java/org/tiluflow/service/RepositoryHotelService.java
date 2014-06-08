@@ -8,6 +8,7 @@ import javax.persistence.EntityNotFoundException;
 
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
@@ -17,6 +18,7 @@ import org.tiluflow.domain.Hotel;
 import org.tiluflow.domain.predicates.HotelPredicates;
 import org.tiluflow.dto.HotelDTO;
 import org.tiluflow.repo.HotelRepository;
+import org.tiluflow.repo.HotelSpecifications;
 
 @Service
 
@@ -85,5 +87,27 @@ public class RepositoryHotelService  implements HotelService{
 	        		);
 	        hotelRepository.save(hotel);
 	        return hotel;
+	}
+	/**
+	 * 
+	 * @param city
+	 * @return
+	 */
+	@Override
+	@Transactional(readOnly=true)
+	public List<Hotel> findByCity(String city){
+		return	hotelRepository.findByCity(city);
+		
+	}
+	@Override
+	@Transactional(readOnly=true)
+	public List<Hotel> findBystate( String state){
+		return hotelRepository.findByState(state);
+		
+	}
+	@Override
+	@Transactional(readOnly=true)
+	public List<Hotel>findCriteriaByStreet(String searchCriteria){
+		return hotelRepository.findAll(HotelSpecifications.lastAddressIsLike(searchCriteria));
 	}
 }

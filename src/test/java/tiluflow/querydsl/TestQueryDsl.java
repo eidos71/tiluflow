@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,8 +53,7 @@ public class TestQueryDsl {
 		accounts = new HashSet<Account>(accountService.findAll());
 		hotels = new HashSet<Hotel>(hotelService.findAll());
 	}
-	@Test
-	public void testSearchHotel(){
+	@Test public void testSearchHotel(){
 		 List<Hotel> searchList = hotelService.search("Hotel");
 		 LOG.debug(" size: {}",searchList.size() );
 		 assertThat("Total Hotels with the word Hotel with 3", searchList.size() , equalTo(3));
@@ -98,5 +98,18 @@ public class TestQueryDsl {
 		hotelService.update(dto);
 		Hotel hotel= hotelService.findById(1);
 		LOG.debug("{}" , hotel.toString() );
+	}
+	/**
+	 * 
+	 */
+	@Test public void testSearchByQuery() {
+		//Search using a @Query on the Repository
+		 assertThat("Total Hotels ", hotelService.findByCity("Atlanta").size()  ,  Matchers.greaterThan (0));
+		 //Search using standard query set by JPA by name
+		 assertThat("Total Hotels ", hotelService.findBystate("Catalunya").size()  ,  Matchers.greaterThan (0));
+		 //Search using Criteria defining a Predicate
+		 assertThat("Total Hotels ", hotelService.findCriteriaByStreet("a").size()  ,  Matchers.greaterThan (0));
+
+		 
 	}
 }

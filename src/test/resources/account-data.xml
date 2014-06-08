@@ -70,4 +70,17 @@
         p:defaultEncoding="UTF-8"
         p:basename="classpath:messages"
   />
+
+	<bean id="accountPort"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value=" tilufwlow.webservices.accountservice.AccountServices" />
+
+		<property name="wsdlDocumentUrl" value="wsdl/accountService.wsdl" />
+		<property name="namespaceUri" value="http://webservices.tilufwlow/accountservice" />
+
+		<property name="serviceName" value="AccountServicesService" />
+		<property name="endpointAddress"
+			value="http://localhost:8080/tiluws/webservices/accountService/accountService" />
+	</bean>
 </beans>

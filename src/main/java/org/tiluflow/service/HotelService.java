@@ -39,4 +39,22 @@ public interface HotelService {
 	 * @return
 	 */
 	Hotel update(HotelDTO hotel) throws HotelNotFoundException;
+	/**
+	 * Looks for Query param
+	 * @param city
+	 * @return
+	 */
+	List<Hotel> findByCity(String city);
+	/**
+	 *  looks for criteria
+	 * @param state
+	 * @return
+	 */
+	List<Hotel> findBystate(String state);
+	/**
+	 * 
+	 * @param searchTerm
+	 * @return
+	 */
+	List<Hotel> findCriteriaByStreet(String searchTerm);
 }
