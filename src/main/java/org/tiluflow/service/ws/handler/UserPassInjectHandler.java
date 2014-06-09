@@ -114,7 +114,7 @@ public class UserPassInjectHandler implements SOAPHandler<SOAPMessageContext> {
 		            "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
 		            "Security", "wsse");
 
-		    final HashSet headers = new HashSet();
+		    final HashSet<QName> headers = new HashSet<QName>();
 		    headers.add(securityHeader);
 
 		    return headers;
