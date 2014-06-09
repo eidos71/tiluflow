@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.tiluflow.service.ws.handler.HeaderHandlerResolver;
 
 import tilufwlow.webservices.Account;
 import tilufwlow.webservices.accountservice.AccountDetailsRequest;
@@ -23,8 +24,9 @@ public class SimpleTiluAccountClient implements TiluAccountClient {
 	    	AccountDetailsRequest request = new AccountDetailsRequest();
 	        request.setAccountNumber(productId);
 	       return  accountPort.accountDetails(request).getAccountDetails();
-
-	     
 	    }
 
+	    public SimpleTiluAccountClient(){
+	    	
+	    }
 }
