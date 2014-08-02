@@ -79,7 +79,7 @@
 		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
 		<property name="serviceInterface"
 			value=" tilufwlow.webservices.accountservice.AccountServices" />
-		<property name="wsdlDocumentUrl" value="wsdl/accountService.wsdl" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/accountService.wsdl" />
 		<property name="namespaceUri" value="http://webservices.tilufwlow/accountservice" />
 		<property name="handlerResolver"
 			ref="handlerResolver" />

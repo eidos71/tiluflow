@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPConstants;
 import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPEnvelope;
 import javax.xml.soap.SOAPException;
@@ -18,8 +17,13 @@ import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserPassInjectHandler implements SOAPHandler<SOAPMessageContext> {
 
+	static final Logger LOG = LoggerFactory.getLogger(UserPassInjectHandler.class);
+	
 	private static final SimpleDateFormat df = new SimpleDateFormat(
 			"yyyy-MM-dd'T'HH:mm:ss'Z'");
 
@@ -80,14 +84,13 @@ public class UserPassInjectHandler implements SOAPHandler<SOAPMessageContext> {
 				SOAPElement expires = timestampToken.addChildElement("Expires");
 				expires.addTextNode(df.format(expiresTime.getTime()));    
 				
-		           soapMsg.writeTo(System.out);
+		        	soapMsg.writeTo(System.out);
 		            soapMsg.saveChanges();
 			} catch (SOAPException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace(); 
+				LOG.error("SOAP HEADER ERROR {}",e);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOG.error("SOAP HEADER ERROR {}",e);
 			}
           
 				
