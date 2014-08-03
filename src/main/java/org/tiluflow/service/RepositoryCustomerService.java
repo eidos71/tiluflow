@@ -10,31 +10,31 @@ import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.tiluflow.domain.User;
-import org.tiluflow.repo.UserRepository;
+import org.tiluflow.domain.Customer;
+import org.tiluflow.repo.CustomerRepository;
 @Service
-public class RepositoryUserService implements UserService {
+public class RepositoryCustomerService implements CustomerService {
 
 
-	private UserRepository userRepository;
+	private CustomerRepository customerRepository;
 	
 	@Inject
-	 public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	 public void setUserRepository(CustomerRepository userRepository) {
+		this.customerRepository = userRepository;
 	}
 
 	@Transactional(readOnly=true)
 	@Override
-	public List<User> findAll() {
+	public List<Customer> findAll() {
 		// TODO Auto-generated method stub
-		return userRepository.findAll();
+		return customerRepository.findAll();
 	}
 
 	 @Transactional(readOnly=true)
 	@Override
-	public User findById(Integer id) throws NotFoundException {
+	public Customer findById(Integer id) throws NotFoundException {
 		// TODO Auto-generated method stub
-		return userRepository.findOne(id);
+		return customerRepository.findOne(id);
 	}
 
 }

@@ -23,13 +23,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tiluflow.domain.Account;
-import org.tiluflow.domain.User;
+import org.tiluflow.domain.Customer;
 import org.tiluflow.service.AccountService;
 import org.tiluflow.service.HotelService;
 import org.tiluflow.service.RepositoryAccountService;
 import org.tiluflow.service.RepositoryHotelService;
-import org.tiluflow.service.RepositoryUserService;
-import org.tiluflow.service.UserService;
+import org.tiluflow.service.RepositoryCustomerService;
+import org.tiluflow.service.CustomerService;
 
 
 
@@ -41,7 +41,7 @@ public class TestLogger {
 	@Autowired
 	private AccountService repositoryAccountService;
 	@Autowired
-	private UserService repositoryUserService;
+	private CustomerService repositoryUserService;
 	@Autowired
 	private  HotelService  repositoryHotelService;
 
@@ -64,16 +64,16 @@ public class TestLogger {
 	}
 	@Test
 	public void testCriteriaHotelUsers(){
-		final List<User> result= repositoryUserService.findAll();
-		LOG.info("result{}", result.size());
+		final List<Customer> result= repositoryUserService.findAll();
+		LOG.info("result: {}", result.size());
 		Assert.assertEquals("Expected result 4",4, result.size() );
 	}
 	@Test
 	public void testCriteriaInsertuser(){
 
-		User entity = new User("eidos71", "c0rp3t1t1", "Ernest Petit");
+		Customer entity = new Customer("eidos71", "c0rp3t1t1", "Ernest Petit", "Z32342341");
 		//userDaoService.save(entity);
-		final List<User> result = repositoryUserService.findAll();
+		final List<Customer> result = repositoryUserService.findAll();
 		LOG.info("result{}", result.size());
 		Assert.assertEquals("Expected result 5",5, result.size() );
 	}

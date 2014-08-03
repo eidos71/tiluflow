@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
-import org.tiluflow.domain.User;
+import org.tiluflow.domain.Customer;
 
-public interface UserService {
+public interface CustomerService {
 
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public List<User> findAll();
+	public List<Customer> findAll();
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 * @throws NotFoundException
 	 */
-	public User findById(Integer id) throws NotFoundException;
+	public Customer findById(Integer id) throws NotFoundException;
 }

@@ -16,7 +16,7 @@ import org.tiluflow.domain.Account;
 import org.tiluflow.domain.Hotel;
 import org.tiluflow.service.AccountService;
 import org.tiluflow.service.HotelService;
-import org.tiluflow.service.UserService;
+import org.tiluflow.service.CustomerService;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -30,7 +30,7 @@ public class GuavaMapsTest {
 	@Autowired
 	private AccountService repositoryAccountService;
 	@Autowired
-	private UserService repositoryUserService;
+	private CustomerService repositoryUserService;
 	@Autowired
 	private  HotelService  repositoryHotelService;
 

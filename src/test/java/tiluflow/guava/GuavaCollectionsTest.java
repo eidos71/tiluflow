@@ -21,8 +21,8 @@ import org.tiluflow.service.AccountService;
 import org.tiluflow.service.HotelService;
 import org.tiluflow.service.RepositoryAccountService;
 import org.tiluflow.service.RepositoryHotelService;
-import org.tiluflow.service.RepositoryUserService;
-import org.tiluflow.service.UserService;
+import org.tiluflow.service.RepositoryCustomerService;
+import org.tiluflow.service.CustomerService;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -40,7 +40,7 @@ public class GuavaCollectionsTest {
 	@Autowired
 	private AccountService repositoryAccountService;
 	@Autowired
-	private UserService repositoryUserService;
+	private CustomerService repositoryUserService;
 	@Autowired
 	private  HotelService  repositoryHotelService;
 	

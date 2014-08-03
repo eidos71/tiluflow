@@ -26,8 +26,8 @@ import org.tiluflow.service.AccountService;
 import org.tiluflow.service.HotelService;
 import org.tiluflow.service.RepositoryAccountService;
 import org.tiluflow.service.RepositoryHotelService;
-import org.tiluflow.service.RepositoryUserService;
-import org.tiluflow.service.UserService;
+import org.tiluflow.service.RepositoryCustomerService;
+import org.tiluflow.service.CustomerService;
 
 import tiluflow.guava.GuavaMapsTest;
 @ContextConfiguration("classpath:account-data.xml")
@@ -36,7 +36,7 @@ public class TestQueryDsl {
 	@Autowired
 	private AccountService accountService;
 	@Autowired
-	private UserService userService;
+	private CustomerService userService;
 	@Autowired
 	private  HotelService  hotelService;
 
