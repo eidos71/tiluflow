@@ -5,11 +5,11 @@
 	<artifactId>tiluflow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>account</name>
+	<name>tiluflow</name>
 
 	<properties>
-    	<jaxws-maven>1.12</jaxws-maven>
-        <spring-data-jpa.version>1.5.1.RELEASE</spring-data-jpa.version>
+		<jaxws-maven>1.12</jaxws-maven>
+		<spring-data-jpa.version>1.5.1.RELEASE</spring-data-jpa.version>
 		<querydsl.version>3.3.3</querydsl.version>
 		<junit.version>4.7</junit.version>
 		<hamcrest.version>1.1</hamcrest.version>
@@ -22,7 +22,24 @@
 		<thymeleaf-version>2.1.2.RELEASE</thymeleaf-version>
 		<thymeleaf-extras-tiles2-version>2.1.1.RELEASE</thymeleaf-extras-tiles2-version>
 		<thymeleaf-extras-springsecurity3-version>2.1.1.RELEASE</thymeleaf-extras-springsecurity3-version>
-		<thymeleaf-extras-conditionalcomments-version>2.1.0.RELEASE</thymeleaf-extras-conditionalcomments-version>		
+		<thymeleaf-extras-conditionalcomments-version>2.1.0.RELEASE</thymeleaf-extras-conditionalcomments-version>
+		<mysql.connector>5.1.30</mysql.connector>
+		<javax.validation>1.0.0.GA</javax.validation>
+		<org.easymock>3.0</org.easymock>
+		<logback.classic>1.1.1</logback.classic>
+		<commons-lang3>3.1</commons-lang3>
+		<javax.servlet>3.0.1</javax.servlet>
+		<jsp-api>2.1</jsp-api>
+		<guava>17.0</guava>
+		<joda-time>1.6.2</joda-time>
+		<taglibs.standard>1.1.2</taglibs.standard>
+		<javax.jslt>1.2</javax.jslt>
+		<mockito-all>1.8.1</mockito-all>
+		<logback-core>1.1.1</logback-core>
+		<hsqldb>2.3.2</hsqldb>
+		<org.hibernate>4.3.0.Final</org.hibernate>
+		<hibernate-jpa>1.0.0.Final</hibernate-jpa>	
+		<net.sf.ehcache>2.5.5</net.sf.ehcache>		
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -46,12 +63,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>						
-		</dependency>		
+			<version>${org.springframework-version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>${org.springframework-version}</version>			
+			<version>${org.springframework-version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -71,7 +88,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-js</artifactId>
 			<version>${spring.webflow}</version>
@@ -80,31 +97,31 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-			</exclusions>	
+			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${org.springframework-version}</version>
-        </dependency>		
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${org.springframework-version}</version>
-        </dependency>        
-<!-- Spring Data  -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>${spring-data-jpa.version}</version>
-        </dependency>
-			<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- Spring Data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		<!-- Spring AOP + AspectJ -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
@@ -116,76 +133,76 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj}</version>
-		</dependency>	
-		
-		
+		</dependency>
+
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.1</version>
+			<version>${logback.classic}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
-		</dependency>		
+		</dependency>
 
-	<dependency>
-	<groupId>ch.qos.logback</groupId>
-	<artifactId>logback-core</artifactId>
-	<version>1.1.1</version>
-</dependency>
-	<dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback-core}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
+			<version>${commons-lang3}</version>
 		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${javax.servlet}</version>
 			<scope>provided</scope>
 		</dependency>
-            
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<version>${jsp-api}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Guava tools -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>17.0</version>
+			<version>${guava}</version>
 		</dependency>
 		<!-- Joda Time -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>1.6.2</version>
+			<version>${joda-time}</version>
 		</dependency>
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
+			<version>${taglibs.standard}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${javax.jslt}</version>
 			<scope>provided</scope>
-			</dependency>
-<!--  Tiles Version		 -->
+		</dependency>
+		<!-- Tiles Version -->
 
-	<!-- Apache Tiles -->
+		<!-- Apache Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
@@ -213,49 +230,49 @@
 		</dependency>
 
 		<!-- Thymeleaf -->
-	<dependency>
-		<groupId>org.thymeleaf</groupId>
-		<artifactId>thymeleaf</artifactId>
-		<version>${thymeleaf-version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.thymeleaf</groupId>
-		<artifactId>thymeleaf-spring3</artifactId>
-		<version>${thymeleaf-version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.thymeleaf.extras</groupId>
-		<artifactId>thymeleaf-extras-tiles2-spring3</artifactId>
-		<version>${thymeleaf-extras-tiles2-version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.thymeleaf.extras</groupId>
-		<artifactId>thymeleaf-extras-springsecurity3</artifactId>
-		<version>${thymeleaf-extras-springsecurity3-version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.thymeleaf.extras</groupId>
-		<artifactId>thymeleaf-extras-conditionalcomments</artifactId>
-		<version>${thymeleaf-extras-conditionalcomments-version}</version>
-	</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf</artifactId>
+			<version>${thymeleaf-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring3</artifactId>
+			<version>${thymeleaf-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-tiles2-spring3</artifactId>
+			<version>${thymeleaf-extras-tiles2-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity3</artifactId>
+			<version>${thymeleaf-extras-springsecurity3-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-conditionalcomments</artifactId>
+			<version>${thymeleaf-extras-conditionalcomments-version}</version>
+		</dependency>
 		<!-- TEST -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
-					</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
-			<version>3.1</version>
+			<version>${org.easymock}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<version>1.8.1</version>
+			<version>${mockito-all}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -270,78 +287,84 @@
 			<version>${hamcrest.version}</version>
 		</dependency>
 
-		<!-- Database, JPA -->
+	<!-- Database, JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.2.1.Final</version>
+			<version>${org.hibernate}</version>
 
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.3.0.Final</version>
+			<version>${org.hibernate}</version>
 			
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.1.Final</version>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${hibernate-jpa}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.2.1.Final</version>
+			<version>${org.hibernate}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
-			<version>4.3.1.Final</version>
+			<version>${org.hibernate}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
-			<version>4.2.1.Final</version>
+			<version>${org.hibernate}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache-core</artifactId>
-			<version>2.5.5</version>
+			<version>${net.sf.ehcache}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.2</version>
-			<scope>runtime</scope>
+			<version>${hsqldb}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
+			<version>${javax.validation}</version>
 		</dependency>
-		
-<dependency>
-	<groupId>com.mysema.querydsl</groupId>
-	<artifactId>querydsl-core</artifactId>
-	<version>${querydsl.version}</version>
-</dependency>
 
-	<dependency>
-		<groupId>com.mysema.querydsl</groupId>
-		<artifactId>querydsl-apt</artifactId>
-		<version>${querydsl.version}</version>
-	</dependency>
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-core</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
 
-	<dependency>
-		<groupId>com.mysema.querydsl</groupId>
-		<artifactId>querydsl-jpa</artifactId>
-		<version>${querydsl.version}</version>
-	</dependency>
-</dependencies>
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector}</version>
+		</dependency>
+	</dependencies>
+
 
 
 	<build>
@@ -407,51 +430,51 @@
 				</configuration>
 			</plugin>
 
-<plugin>
-    <groupId>com.mysema.maven</groupId>
-    <artifactId>apt-maven-plugin</artifactId>
-    <version>1.0.5</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>process</goal>
-            </goals>
-            <configuration>
-                <outputDirectory>target/generated-sources/java</outputDirectory>
-                <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
-            </configuration>
-        </execution>
-        </executions>
-        <dependencies>
-            <dependency>
-                <groupId>com.mysema.querydsl</groupId>
-                <artifactId>querydsl-apt</artifactId>
-                <version>${querydsl.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.mysema.querydsl</groupId>
-                <artifactId>querydsl-jpa</artifactId>
-                <classifier>apt</classifier>
-                <version>${querydsl.version}</version>
-            </dependency>
-        </dependencies>
-    </plugin>
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.0.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/java</outputDirectory>
+							<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.mysema.querydsl</groupId>
+						<artifactId>querydsl-apt</artifactId>
+						<version>${querydsl.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.mysema.querydsl</groupId>
+						<artifactId>querydsl-jpa</artifactId>
+						<classifier>apt</classifier>
+						<version>${querydsl.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
-  <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>jaxws-maven-plugin</artifactId>
-            <version>${jaxws-maven}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>wsimport</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-            </configuration>
-        </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>${jaxws-maven}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+				</configuration>
+			</plugin>
 
 			<!-- Plugin to run and test through maven -->
 			<plugin>

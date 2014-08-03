@@ -16,6 +16,7 @@ import org.tiluflow.domain.Account;
 import org.tiluflow.domain.Hotel;
 import org.tiluflow.service.AccountService;
 import org.tiluflow.service.HotelService;
+import org.tiluflow.service.UserService;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -26,13 +27,12 @@ import com.google.common.collect.Multimap;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class GuavaMapsTest {
 
-
-	@Autowired
-	private AccountService  repositoryUserService;
-	@Autowired
-	private  HotelService  repositoryHotelService;
 	@Autowired
 	private AccountService repositoryAccountService;
+	@Autowired
+	private UserService repositoryUserService;
+	@Autowired
+	private  HotelService  repositoryHotelService;
 
 	private Set<Hotel> hotels;
 	private Set<Account> accounts;

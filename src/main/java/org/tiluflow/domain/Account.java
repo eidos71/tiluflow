@@ -31,7 +31,7 @@ import org.hibernate.validator.constraints.Email;
  */
 @Entity
 @Table(name = "account")
-public class Account  {
+public class Account implements Serializable  {
 
   @Override
 	public String toString() {

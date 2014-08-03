@@ -10,6 +10,9 @@ import java.util.List;
 
 
 
+
+
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -21,9 +24,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tiluflow.domain.Account;
 import org.tiluflow.domain.User;
+import org.tiluflow.service.AccountService;
+import org.tiluflow.service.HotelService;
 import org.tiluflow.service.RepositoryAccountService;
 import org.tiluflow.service.RepositoryHotelService;
 import org.tiluflow.service.RepositoryUserService;
+import org.tiluflow.service.UserService;
 
 
 
@@ -33,11 +39,11 @@ import org.tiluflow.service.RepositoryUserService;
 public class TestLogger {
 
 	@Autowired
-	private RepositoryAccountService repositoryAccountService;
+	private AccountService repositoryAccountService;
 	@Autowired
-	private RepositoryUserService repositoryUserService;
+	private UserService repositoryUserService;
 	@Autowired
-	private  RepositoryHotelService  repositoryHotelService;
+	private  HotelService  repositoryHotelService;
 
 	static final Logger LOG = LoggerFactory.getLogger(TestLogger.class);
 	@Test

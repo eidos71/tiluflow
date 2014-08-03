@@ -1,5 +1,6 @@
 package org.tiluflow.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -12,11 +13,15 @@ import javax.persistence.Id;
 
 
 
+
+import javax.persistence.Table;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.util.StringUtils;
 
 @Entity
-public class Hotel  {
+@Table(name = "hotel")
+public class Hotel implements Serializable  {
 
 	/**
 	 * 

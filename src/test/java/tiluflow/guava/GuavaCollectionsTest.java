@@ -17,9 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tiluflow.domain.Account;
+import org.tiluflow.service.AccountService;
+import org.tiluflow.service.HotelService;
 import org.tiluflow.service.RepositoryAccountService;
 import org.tiluflow.service.RepositoryHotelService;
 import org.tiluflow.service.RepositoryUserService;
+import org.tiluflow.service.UserService;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -35,11 +38,11 @@ import com.google.common.hash.PrimitiveSink;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class GuavaCollectionsTest {
 	@Autowired
-	private RepositoryAccountService repositoryAccountService;
+	private AccountService repositoryAccountService;
 	@Autowired
-	private RepositoryUserService repositoryUserService;
+	private UserService repositoryUserService;
 	@Autowired
-	private  RepositoryHotelService  repositoryHotelService;
+	private  HotelService  repositoryHotelService;
 	
 	  private Set<Account> accounts;
 	  
