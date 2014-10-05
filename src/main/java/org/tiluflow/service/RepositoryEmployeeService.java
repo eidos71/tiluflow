@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,15 +28,24 @@ public class RepositoryEmployeeService implements EmployeeService {
 
 	@Transactional(readOnly = true)
 	@Override
+	
 	public List<Employee> findAll() {
 		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
+	@Transactional(readOnly = true)
+	@Override
+	@Cacheable(value="searchResults",  key="T(java.lang.String).valueOf(#a.employeeCode).concat('-').concat(#a.username)")
+	public Employee mockFindCacheable(EmployeeDTO a)  {
+	
+		return repository.findOne(new Integer(a.getEmployeeCode()));
+	}
 
 	@Transactional(readOnly = true)
 	@Override
+	@Cacheable(value="searchResults", key="#id")
 	public Employee findById(Integer id) throws NotFoundException {
-		// TODO Auto-generated method stub
+	
 		return repository.findOne(id);
 	}
 
@@ -43,14 +53,14 @@ public class RepositoryEmployeeService implements EmployeeService {
 	@Override
 	public Employee create(EmployeeDTO employeeDTO) {
 		LOG.debug("Creating a new person with information: " + employeeDTO);
-
-		Employee employee = Employee.getBuilder(
+		Employee employee= new Employee();
+		 employee = Employee.getBuilder(
 					employeeDTO.getUserName(),
 					employeeDTO.getPassword(), 
 					employeeDTO.getName(),
 					employeeDTO.getEmployeeCode())
 				.build();
-		repository.save(employee);
+		//repository.save(employee);
 		return employee;
 	}
 }

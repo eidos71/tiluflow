@@ -23,7 +23,10 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/config/tiluflow-flow.xml</param-value>
+
     </init-param>
+          		<load-on-startup>1</load-on-startup>
+
   </servlet>
 
   <servlet>
@@ -36,10 +39,6 @@
     <url-pattern>/resources/*</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>DispatcherServlet</servlet-name>
-    <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
@@ -50,4 +49,5 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 
+ 
 </web-app>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +20,7 @@ public class RepositoryAccountService  implements AccountService{
 	public void setAccountRepository(AccountRepository accountRepository) {
 		this.accountRepository = accountRepository;
 	}
-
+	@Cacheable(value = { "longitude" })
 	 @Transactional(readOnly=true)
 	@Override
 	public List<Account> findAll() {

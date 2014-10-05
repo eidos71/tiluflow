@@ -78,7 +78,7 @@ public class TestLogger {
 	}
 	@Test
 	public void testCriteriaEmployee() {
-		EmployeeDTO employeeDTO= new EmployeeDTO("eidos71", "c0rp3t1t1", "Ernest Petit", "Z32342341"); {
+		EmployeeDTO employeeDTO= new EmployeeDTO("albert31", "c0rp3t1t1", "Albert Petit", "ZV32342341"); {
 			Employee result = employeeService.create(employeeDTO);
 			
 		}

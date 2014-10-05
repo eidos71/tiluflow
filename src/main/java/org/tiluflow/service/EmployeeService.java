@@ -28,4 +28,10 @@ public interface EmployeeService {
 	 * @return
 	 */
 	Employee create(EmployeeDTO employeeDTO);
+	/**
+	 * 
+	 * @param a
+	 * @return
+	 */
+	public Employee mockFindCacheable(EmployeeDTO a);
 }
