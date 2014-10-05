@@ -31,6 +31,7 @@ public class CacheTestController {
 			 )
 	 @ResponseBody
     public Employee listEmployees(@PathVariable String id, @PathVariable String username ) throws NotFoundException {
+	//Check  http://www.codingpedia.org/ama/spring-caching-with-ehcache/
 		 Employee emp;
 		 	EmployeeDTO a= new EmployeeDTO(username, null, null, id);
 			emp = employeeService.mockFindCacheable(a);

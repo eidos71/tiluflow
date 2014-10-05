@@ -35,9 +35,9 @@ public class RepositoryEmployeeService implements EmployeeService {
 	}
 	@Transactional(readOnly = true)
 	@Override
-	@Cacheable(value="searchResults",  key="T(java.lang.String).valueOf(#a.employeeCode).concat('-').concat(#a.username)")
+	@Cacheable(value="searchResults",  key="T(java.lang.String).valueOf(#a.employeeCode).concat('-').concat(#a.userName)")
 	public Employee mockFindCacheable(EmployeeDTO a)  {
-	
+		LOG.debug(" finding for {},  " ,  a);
 		return repository.findOne(new Integer(a.getEmployeeCode()));
 	}
 
